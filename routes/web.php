@@ -17,6 +17,9 @@ use App\Http\Controllers\ControllerAgendamentos;
 Route::get('/', function () {
     return view('index');
 });
-
+Route::get('/consulta', function () { return view('consulta'); });
+Route::delete('/excluir/{id}', [controllerAgendamentos::class, 'DELETE']);
 Route::get('/consultar', [ControllerAgendamentos::class, 'funConsultar'] );
 Route::post('/addAgendamentos', [ControllerAgendamentos::class, 'store']);
+Route::get('/editar/{id}', [ControllerAgendamentos::class, 'Editar']);
+Route::put('/atualizar{id}', [ControllerAgendamentos::class, 'UPDATE']);

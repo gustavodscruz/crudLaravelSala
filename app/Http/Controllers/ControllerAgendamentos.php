@@ -27,7 +27,16 @@ class ControllerAgendamentos extends Controller
     }
     public function funConsultar(){
         $consulta = new servicos();
-        return view('consulta', ['agendas' => $consulta()]);
+        return view('/consultar', ['agendas' => $consulta->all()]);
 
+    }
+    public function DELETE($id){
+        servicos::findOrFail($id)->delete();
+        return redirect('/consultar');
+
+    }
+    public function Editar($id){
+        $consulta  = servicos::findOrFail($id);
+        return view('editar', ['agendas' => $consulta]);
     }
 }
