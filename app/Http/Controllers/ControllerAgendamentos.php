@@ -9,6 +9,7 @@ class ControllerAgendamentos extends Controller
 {
     //
 
+
     public function store(Request $request){
 
         $control = new servicos();
@@ -22,6 +23,11 @@ class ControllerAgendamentos extends Controller
         $control->save();
 
         return redirect('/');
+
+    }
+    public function funConsultar(){
+        $consulta = new servicos();
+        return view('consulta', ['agendas' => $consulta()]);
 
     }
 }

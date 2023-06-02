@@ -18,4 +18,5 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/consultar', [ControllerAgendamentos::class, 'funConsultar'] );
 Route::post('/addAgendamentos', [ControllerAgendamentos::class, 'store']);
